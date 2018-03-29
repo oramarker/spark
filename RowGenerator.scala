@@ -11,6 +11,9 @@ case class FieldContainer(fieldValue: Option[String], convertedValue: Try[Any], 
 
 case class ConvertedLine(allFieldValid: Boolean, row: Option[Row], fieldContainerList: Option[List[FieldContainer]])
 
+/**
+* Converts an array of string to spark row , the result could be either a row or a error field list.
+*/
 class RowGenerator {
 
   def convertLineToRow(fieldValues: Array[String], structType: StructType, convertInvalidValueToNull: Boolean = false): ConvertedLine = {
